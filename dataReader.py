@@ -19,6 +19,8 @@ def excel_sorter(file1, sheet1, name1):
 
 # print excel table
 def excel_auto_printer():
+    print('Showing the first ten entries in the sorted and unsorted tables')
+
     ftable = excel_sorter('Extract 1.xlsx', 'Extract 1', 'Brent, Tipton')
     for i, u in zip(ftable.index, range(9)):
         print('After: ')
@@ -37,4 +39,25 @@ def excel_printer(file2, sheet2, name2):
         print(' ')
 
 
-print('Showing the first ten entries in the sorted and unsorted tables')
+# print excel table
+def excel_select_printer():
+    sheet = input()
+    name = input()
+
+    import Tkinter, tkFileDialog
+
+    root = Tkinter.Tk()
+    root.withdraw()
+
+    file_path = tkFileDialog.askopenfilename()
+    sheet = input()
+    name = input()
+
+    ftable = excel_sorter(file_path, sheet, name)
+    for i, u in zip(ftable.index, range(9)):
+        print('After: ')
+        print(
+            ftable['Unique ID'][i] + ' / ' + ftable['IT Requestor Name'][i] + ' / ' + ftable['Purchase Description'][i])
+        print(' ')
+
+
