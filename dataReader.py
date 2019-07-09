@@ -3,7 +3,7 @@ from pandas import ExcelWriter
 from pandas import ExcelFile
 
 # Sorter Method
-def sorter( file1, sheet1, name1):
+def excel_sorter( file1, sheet1, name1):
     df = pd.read_excel(file1, sheet_name=sheet1)
 
     print('Before:')
@@ -17,7 +17,7 @@ def sorter( file1, sheet1, name1):
 
 # implementation
 print('Showing the first ten entries in the sorted and unsorted tables')
-ftable = sorter('Extract 1.xlsx', 'Extract 1', 'Brent, Tipton')
+ftable = excel_sorter('Extract 1.xlsx', 'Extract 1', 'Brent, Tipton')
 print('After: ')
 u=0
 for i,u in zip(ftable.index,range(9)):
